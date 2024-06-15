@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screen Sharing</title>
+</head>
+<body>
+    <button id="start">Start Sharing</button>
+    <video id="video" autoplay></video>
+
+    <script>
+        document.getElementById('start').addEventListener('click', async () => {
+            const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+            document.getElementById('video').srcObject = stream;
+
+            // Send this stream to peers via WebRTC
+        });
+    </script>
+</body>
+</html>
